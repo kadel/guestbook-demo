@@ -1,7 +1,7 @@
 NAME=tomaskral/kedge-demo-frontend
 VERSION=v1
 
-.PHONY: image push
+all: image push
 
 image:
 	docker build -t $(NAME):$(VERSION) .

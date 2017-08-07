@@ -1,15 +1,12 @@
 NAME=tomaskral/kedge-demo-backend
 VERSION=v1
 
-
-.PHONY: image push
-
-all: build
+all: image push
 
 build: server.go
 	go build server.go
 
-image: build
+image:
 	docker build -t $(NAME):$(VERSION) .
 
 push:
