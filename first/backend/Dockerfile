@@ -1,7 +1,18 @@
+
+# 1st Stage - build binary
+
+FROM golang:1.8
+WORKDIR /go/src/github.com/kadel/kedge-demo/first/
+COPY . .
+RUN make build
+
+
+
+# 2th Stage - create image
+
 FROM centos:7
 
-COPY server /opt/api/
-
+COPY --from=0 /go/src/github.com/kadel/kedge-demo/first/server /opt/api/
 
 EXPOSE 3000
 
