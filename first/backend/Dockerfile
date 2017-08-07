@@ -1,17 +1,22 @@
 
 # 1st Stage - build binary
 
-FROM golang:1.8
-WORKDIR /go/src/github.com/kadel/kedge-demo/first/backend
+FROM fedora:26
+
+RUN yum install -y golang make
+
+ENV GOPATH="/go/"
+
+WORKDIR $GOPATH/src/github.com/kadel/kedge-demo/first/backend
 COPY . .
-RUN ls
+
 RUN make build
 
 
 
 # 2th Stage - create image
 
-FROM centos:7
+FROM fedora:26
 
 COPY --from=0 /go/src/github.com/kadel/kedge-demo/first/backend/server /opt/api/
 
