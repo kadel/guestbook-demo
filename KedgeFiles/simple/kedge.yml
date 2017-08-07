@@ -1,0 +1,47 @@
+name: frontend
+containers:
+  - image: tomaskral/kedge-demo-frontend:v1
+services:
+  - type: LoadBalancer
+    ports:
+    - port: 8080
+
+---
+name: backend
+containers:
+  - image: tomaskral/kedge-demo-backend:v1
+    env:
+    - name: MONGODB_PASSWORD
+      value: pass
+    - name: MONGODB_USER
+      value: user
+    - name: MONGODB_DATABASE
+      value: db
+    - name: MONGODB_SERVER
+      value: mongodb:27017
+services:
+  - ports:
+    - port: 3000
+  
+---
+name: mongodb
+containers:
+  - image: tomaskral/mongodb-centos7
+    env:
+    - name: MONGODB_PASSWORD
+      value: pass
+    - name: MONGODB_USER
+      value: user
+    - name: MONGODB_DATABASE
+      value: db
+    - name:  MONGODB_ADMIN_PASSWORD
+      value: root
+    volumeMounts:
+     - name: mongodb-data
+       mountPath: /var/lib/mongodb/data
+services:
+  - ports:
+    - port: 27017
+volumeClaims:
+  - name: mongodb-data
+    size: 100Mi
