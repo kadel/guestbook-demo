@@ -1,4 +1,4 @@
-NAME=quay.io/tomakral/kedge-demo-frontend
+NAME=tomaskral/kedge-demo-frontend
 VERSION=v1
 
 .PHONY: image push

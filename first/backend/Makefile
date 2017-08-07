@@ -1,4 +1,4 @@
-NAME=quay.io/tomakral/kedge-demo-backend
+NAME=tomaskral/kedge-demo-backend
 VERSION=v1
 
 
