@@ -27,7 +27,7 @@ var (
 const key string = "guestbook"
 
 type comment struct {
-	Id     bson.ObjectId `json:"id" bson:"_id,omitempty" `
+	ID     bson.ObjectId `json:"id" bson:"_id,omitempty" `
 	Author string        `json:"author"`
 	Text   string        `json:"text"`
 }
