@@ -7,11 +7,11 @@ containers:
           secretKeyRef:
             name: mongodb-user
             key: MONGODB_PASSWORD
-      - name: MONGODB_USER
+      - name: MONGODB_USERNAME
         valueFrom:
           configMapKeyRef:
             name: mongodb-user
-            key: MONGODB_USER
+            key: MONGODB_USERNAME
       - name: MONGODB_DATABASE
         valueFrom:
           configMapKeyRef:

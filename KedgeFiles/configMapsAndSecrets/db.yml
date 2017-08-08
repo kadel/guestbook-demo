@@ -1,6 +1,6 @@
 name: mongodb
 containers:
-  - image: tomaskral/mongodb-centos7
+  - image: bitnami/mongodb
     envFrom:
       - secretRef:
           name: mongodb-admin
@@ -10,7 +10,7 @@ containers:
           name: mongodb-user
     volumeMounts:
      - name: mongodb-data
-       mountPath: /var/lib/mongodb/data
+       mountPath: /bitnami
 services:
   - ports:
     - port: 27017
@@ -27,6 +27,6 @@ secrets:
 configMaps:
   - name: mongodb-user
     data:
-      MONGODB_USER: user
+      MONGODB_USERNAME: user
       MONGODB_DATABASE: db
       MONGODB_SERVER: mongodb:27017

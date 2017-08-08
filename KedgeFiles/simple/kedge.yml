@@ -13,7 +13,7 @@ containers:
     env:
     - name: MONGODB_PASSWORD
       value: pass
-    - name: MONGODB_USER
+    - name: MONGODB_USERNAME
       value: user
     - name: MONGODB_DATABASE
       value: db
@@ -26,11 +26,11 @@ services:
 ---
 name: mongodb
 containers:
-  - image: tomaskral/mongodb-centos7
+  - image: bitnami/mongodb
     env:
     - name: MONGODB_PASSWORD
       value: pass
-    - name: MONGODB_USER
+    - name: MONGODB_USERNAME
       value: user
     - name: MONGODB_DATABASE
       value: db
