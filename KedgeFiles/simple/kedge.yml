@@ -1,6 +1,6 @@
 name: frontend
 containers:
-  - image: tomaskral/kedge-demo-frontend:v1
+  - image: quay.io/tomkral/guestbook-demo-frontend:v1
 services:
   - type: LoadBalancer
     ports:
@@ -9,7 +9,7 @@ services:
 ---
 name: backend
 containers:
-  - image: tomaskral/kedge-demo-backend:v1
+  - image: quay.io/tomkral/guestbook-demo-backend:v1
     env:
     - name: MONGODB_PASSWORD
       value: pass
@@ -26,7 +26,7 @@ services:
 ---
 name: mongodb
 containers:
-  - image: bitnami/mongodb
+  - image: bitnami/mongodb:3.4.7-r0
     env:
     - name: MONGODB_PASSWORD
       value: pass
